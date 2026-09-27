@@ -8,4 +8,4 @@ RUN npx prisma generate
 RUN npm run build
 EXPOSE 3000
 ENV NODE_ENV=production
-CMD ["npm", "start"]
+CMD ["sh", "-c", "npx prisma db push --accept-data-loss && npm start"]
