@@ -1,2 +1,21 @@
-export const metadata = { title: 'EnvanterTR SaaS' }
-export default function RootLayout({ children }: { children: React.ReactNode }) { return <html lang='tr'><body style={{margin:0,fontFamily:'system-ui'}}>{children}</body></html> }
+import type { Metadata } from 'next'
+import './globals.css'
+
+export const metadata: Metadata = {
+  title: 'EnvanterTR — Modern Envanter Yönetimi',
+  description: 'Bulut tabanlı, çok kiracılı envanter yönetim sistemi.',
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="tr">
+      <body className="bg-slate-50 text-slate-900 antialiased">
+        {children}
+      </body>
+    </html>
+  )
+}
