@@ -1,189 +1,152 @@
 import Link from 'next/link'
-import {
-  Package,
-  Shield,
-  User,
-  QrCode,
-  Plug,
-  BarChart3,
-  Globe,
-  Palette,
-  Lock,
-  ArrowRight,
-  Check,
-} from 'lucide-react'
 
 const features = [
-  { icon: Package, title: 'Demirbaş Takibi', desc: 'Laptop, monitör, telefon — tüm donanımınızı tek merkezden takip edin.' },
-  { icon: Shield, title: 'Lisans Yönetimi', desc: 'Yazılım lisanslarını, koltukları ve bitiş tarihlerini takip edin.' },
-  { icon: User, title: 'Zimmet Sistemi', desc: 'Kime ne verildi? Dijital imza, PDF zimmet formu, otomatik e-posta.' },
-  { icon: QrCode, title: 'QR & Barkod', desc: 'Otomatik etiket üretimi. Kamerayla okut, sayımı 10 kat hızlandır.' },
-  { icon: Plug, title: 'MDM & ERP Entegrasyonu', desc: 'Intune, Jamf, Logo, Netsis ile iki yönlü senkronizasyon.' },
-  { icon: BarChart3, title: 'Raporlama & BI', desc: 'Canlı dashboard, kategori dağılımı, maliyet analizi.' },
-  { icon: Globe, title: 'Çoklu Dil & Para Birimi', desc: 'Global şirketler için hazır. 55+ dil, çoklu para birimi.' },
-  { icon: Palette, title: 'Whitelabel', desc: 'Kendi logonuz, kendi renginiz. Sistem sizin markanız gibi.' },
-  { icon: Lock, title: 'SSO & LDAP', desc: 'Google, Azure AD, Okta, SAML, SCIM desteği.' },
+  { icon: '📦', title: 'Demirbaş Takibi', desc: 'Laptop, monitör, telefon — tüm donanımınızı tek merkezden takip edin.' },
+  { icon: '🔐', title: 'Lisans Yönetimi', desc: 'Yazılım lisanslarını, koltukları ve bitiş tarihlerini takip edin.' },
+  { icon: '👤', title: 'Zimmet Sistemi', desc: 'Kime ne verildi? Dijital imza, PDF zimmet formu, otomatik e-posta.' },
+  { icon: '📱', title: 'QR & Barkod', desc: 'Otomatik etiket üretimi. Kamerayla okut, sayımı 10 kat hızlandır.' },
+  { icon: '🔌', title: 'MDM & ERP', desc: 'Intune, Jamf, Logo, Netsis ile iki yönlü senkronizasyon.' },
+  { icon: '📊', title: 'Raporlama', desc: 'Canlı dashboard, kategori dağılımı, maliyet analizi.' },
+  { icon: '🌍', title: 'Çoklu Dil', desc: 'Global şirketler için hazır. 55+ dil, çoklu para birimi.' },
+  { icon: '🎨', title: 'Whitelabel', desc: 'Kendi logonuz, kendi renginiz. Sistem sizin markanız gibi.' },
+  { icon: '🔒', title: 'SSO & LDAP', desc: 'Google, Azure AD, Okta, SAML, SCIM desteği.' },
 ]
 
 const plans = [
-  {
-    name: 'Başlangıç',
-    price: '499',
-    features: ['50 demirbaş', '3 kullanıcı', '5 GB disk', 'QR kod & barkod', 'PDF zimmet formu'],
-    missing: ['LDAP / SSO', 'API erişimi'],
-  },
-  {
-    name: 'Standart',
-    price: '999',
-    features: ['500 demirbaş', '20 kullanıcı', '50 GB disk', 'QR kod & barkod', 'PDF zimmet formu', 'LDAP / SSO'],
-    missing: ['API erişimi'],
-  },
-  {
-    name: 'Profesyonel',
-    price: '1.999',
-    features: ['2.000 demirbaş', '50 kullanıcı', '250 GB disk', 'QR kod & barkod', 'PDF zimmet formu', 'LDAP / SSO / SCIM', 'API erişimi'],
-    featured: true,
-    missing: [],
-  },
-  {
-    name: 'Kurumsal',
-    price: '2.499',
-    features: ['Sınırsız demirbaş', 'Sınırsız kullanıcı', '1 TB disk', 'QR kod & barkod', 'PDF zimmet formu', 'LDAP / SSO / SCIM', 'API + MDM entegrasyon'],
-    missing: [],
-  },
+  { name: 'Başlangıç', price: '499', features: ['50 demirbaş', '3 kullanıcı', '5 GB disk', 'QR kod & barkod', 'PDF zimmet formu'], missing: ['LDAP / SSO', 'API erişimi'], featured: false },
+  { name: 'Standart', price: '999', features: ['500 demirbaş', '20 kullanıcı', '50 GB disk', 'QR kod & barkod', 'PDF zimmet formu', 'LDAP / SSO'], missing: ['API erişimi'], featured: false },
+  { name: 'Profesyonel', price: '1.999', features: ['2.000 demirbaş', '50 kullanıcı', '250 GB disk', 'QR kod & barkod', 'PDF zimmet formu', 'LDAP / SSO / SCIM', 'API erişimi'], missing: [], featured: true },
+  { name: 'Kurumsal', price: '2.499', features: ['Sınırsız demirbaş', 'Sınırsız kullanıcı', '1 TB disk', 'QR kod & barkod', 'PDF zimmet formu', 'LDAP / SSO / SCIM', 'API + MDM'], missing: [], featured: false },
 ]
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main style={{ minHeight: '100vh', background: '#f8fafc', color: '#0f172a' }}>
+      <style>{`
+        * { box-sizing: border-box; }
+        .nav-link { text-decoration: none; color: #475569; font-size: 14px; font-weight: 500; }
+        .nav-link:hover { color: #0f172a; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: linear-gradient(135deg, #dc2626, #b91c1c); color: #fff; font-weight: 600; border-radius: 12px; text-decoration: none; box-shadow: 0 10px 25px rgba(220,38,38,0.3); transition: transform .15s; }
+        .btn-primary:hover { transform: translateY(-2px); }
+        .btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #fff; border: 1px solid #e2e8f0; color: #334155; font-weight: 600; border-radius: 12px; text-decoration: none; }
+        .feature-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px; transition: all .2s; }
+        .feature-card:hover { transform: translateY(-4px); border-color: #dc2626; box-shadow: 0 20px 40px rgba(15,23,42,0.08); }
+        .plan-card { background: #fff; border: 2px solid #e2e8f0; border-radius: 16px; padding: 28px; position: relative; transition: all .2s; }
+        .plan-card:hover { transform: translateY(-4px); }
+        .plan-featured { border-color: #dc2626; box-shadow: 0 20px 40px rgba(220,38,38,0.1); }
+        @media (max-width: 768px) {
+          .grid-3 { grid-template-columns: 1fr !important; }
+          .grid-4 { grid-template-columns: 1fr !important; }
+          .hero-title { font-size: 36px !important; }
+        }
+      `}</style>
+
       {/* NAVBAR */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 bg-gradient-to-br from-red-600 to-red-800 rounded-lg flex items-center justify-center text-white font-black text-lg shadow-lg shadow-red-600/30">
-              E
-            </div>
-            <span className="text-xl font-extrabold tracking-tight">
-              Envanter<span className="text-red-600">TR</span>
+      <nav style={{ position: 'sticky', top: 0, zIndex: 50, background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(12px)', borderBottom: '1px solid #e2e8f0' }}>
+        <div style={{ maxWidth: 1280, margin: '0 auto', padding: '0 24px', height: 64, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+            <div style={{ width: 36, height: 36, background: 'linear-gradient(135deg, #dc2626, #b91c1c)', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontWeight: 900, fontSize: 18, boxShadow: '0 4px 12px rgba(220,38,38,0.3)' }}>E</div>
+            <span style={{ fontSize: 20, fontWeight: 800, letterSpacing: '-0.5px', color: '#0f172a' }}>
+              Envanter<span style={{ color: '#dc2626' }}>TR</span>
             </span>
           </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-            <a href="#features" className="hover:text-slate-900 transition">Özellikler</a>
-            <a href="#pricing" className="hover:text-slate-900 transition">Fiyatlar</a>
-            <a href="#demo" className="hover:text-slate-900 transition">Demo</a>
-            <a href="#contact" className="hover:text-slate-900 transition">İletişim</a>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 32 }} className="hide-mobile">
+            <a href="#features" className="nav-link">Özellikler</a>
+            <a href="#pricing" className="nav-link">Fiyatlar</a>
+            <a href="#demo" className="nav-link">Demo</a>
+            <a href="#contact" className="nav-link">İletişim</a>
           </div>
-          <div className="flex items-center gap-3">
-            <Link href="/login" className="text-sm font-semibold text-slate-700 hover:text-slate-900 px-4 py-2 rounded-lg transition">
-              Giriş Yap
-            </Link>
-            <Link
-              href="/signup"
-              className="text-sm font-semibold text-white bg-gradient-to-r from-red-600 to-red-800 px-5 py-2.5 rounded-lg shadow-lg shadow-red-600/30 hover:shadow-red-600/40 hover:-translate-y-0.5 transition-all"
-            >
-              Ücretsiz Dene
-            </Link>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <Link href="/login" style={{ textDecoration: 'none', color: '#334155', fontSize: 14, fontWeight: 600, padding: '8px 16px' }}>Giriş Yap</Link>
+            <Link href="/signup" className="btn-primary" style={{ padding: '10px 20px', fontSize: 14 }}>Ücretsiz Dene</Link>
           </div>
         </div>
       </nav>
 
       {/* HERO */}
-      <section className="relative px-6 pt-20 pb-16 text-center overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(220,38,38,0.08),_transparent_60%)]" />
-        <div className="relative max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mb-6">
-            Şirket envanteriniz
-            <br />
-            artık <span className="text-red-600">tek yerde</span>.
+      <section style={{ padding: '80px 24px 60px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at top, rgba(220,38,38,0.08), transparent 60%)', pointerEvents: 'none' }} />
+        <div style={{ position: 'relative', maxWidth: 900, margin: '0 auto' }}>
+          <h1 className="hero-title" style={{ fontSize: 56, fontWeight: 900, letterSpacing: '-2px', lineHeight: 1.05, marginBottom: 24, color: '#0f172a' }}>
+            Şirket envanteriniz<br />artık <span style={{ color: '#dc2626' }}>tek yerde</span>.
           </h1>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p style={{ fontSize: 18, color: '#64748b', maxWidth: 640, margin: '0 auto 32px', lineHeight: 1.7 }}>
             Donanım, yazılım lisansı ve zimmet kayıtlarınızı bulut tabanlı modern bir panelde yönetin.
             Kurulum yok, sunucu yok — saniyeler içinde başlayın.
           </p>
-          <div className="flex items-center justify-center gap-3 mb-6 flex-wrap">
-            <Link
-              href="/signup"
-              className="inline-flex items-center gap-2 text-white bg-gradient-to-r from-red-600 to-red-800 px-7 py-3.5 rounded-xl font-semibold shadow-xl shadow-red-600/30 hover:shadow-red-600/40 hover:-translate-y-0.5 transition-all"
-            >
-              Ücretsiz Dene
-              <ArrowRight className="w-4 h-4" />
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, flexWrap: 'wrap', marginBottom: 24 }}>
+            <Link href="/signup" className="btn-primary" style={{ padding: '14px 32px', fontSize: 15 }}>
+              Ücretsiz Dene →
             </Link>
-            <button className="inline-flex items-center gap-2 bg-white border border-slate-200 px-7 py-3.5 rounded-xl font-semibold text-slate-700 hover:bg-slate-50 transition">
+            <button className="btn-ghost" style={{ padding: '14px 32px', fontSize: 15, cursor: 'pointer', fontFamily: 'inherit' }}>
               Demo İzle
             </button>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500">
-            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-600" /> Kredi kartı gerekmez</span>
-            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-600" /> Kurulum ücretsiz</span>
-            <span className="flex items-center gap-1.5"><Check className="w-4 h-4 text-green-600" /> İstediğiniz an iptal</span>
+          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 24, fontSize: 14, color: '#64748b' }}>
+            <span>✓ Kredi kartı gerekmez</span>
+            <span>✓ Kurulum ücretsiz</span>
+            <span>✓ İstediğiniz an iptal</span>
           </div>
         </div>
       </section>
 
       {/* FEATURES */}
-      <section id="features" className="px-6 py-20 bg-white">
-        <div className="max-w-6xl mx-auto text-center mb-14">
-          <h2 className="text-4xl font-black tracking-tight mb-4">Envanter yönetiminde yeni standart</h2>
-          <p className="text-slate-500">Kurumsal güç, modern arayüz</p>
+      <section id="features" style={{ padding: '80px 24px', background: '#fff' }}>
+        <div style={{ maxWidth: 1150, margin: '0 auto', textAlign: 'center', marginBottom: 56 }}>
+          <h2 style={{ fontSize: 38, fontWeight: 900, letterSpacing: '-1px', marginBottom: 12, color: '#0f172a' }}>Envanter yönetiminde yeni standart</h2>
+          <p style={{ color: '#64748b', fontSize: 16 }}>Kurumsal güç, modern arayüz</p>
         </div>
-        <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+        <div className="grid-3" style={{ maxWidth: 1150, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
           {features.map((f) => (
-            <div key={f.title} className="group bg-white border border-slate-200 rounded-2xl p-7 hover:border-red-600 hover:-translate-y-1 hover:shadow-xl hover:shadow-red-600/5 transition-all">
-              <div className="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-5 group-hover:bg-red-600 group-hover:text-white transition-colors">
-                <f.icon className="w-6 h-6" />
-              </div>
-              <h3 className="text-lg font-bold mb-2">{f.title}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">{f.desc}</p>
+            <div key={f.title} className="feature-card">
+              <div style={{ fontSize: 32, marginBottom: 16 }}>{f.icon}</div>
+              <h3 style={{ fontSize: 17, fontWeight: 800, marginBottom: 8, color: '#0f172a' }}>{f.title}</h3>
+              <p style={{ fontSize: 14, color: '#64748b', lineHeight: 1.6, margin: 0 }}>{f.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* PRICING */}
-      <section id="pricing" className="px-6 py-20 bg-slate-50">
-        <div className="max-w-6xl mx-auto text-center mb-14">
-          <h2 className="text-4xl font-black tracking-tight mb-4">Şeffaf fiyatlandırma</h2>
-          <p className="text-slate-500">Gizli ücret yok, taahhüt yok. İstediğiniz an iptal edin.</p>
+      <section id="pricing" style={{ padding: '80px 24px', background: '#f8fafc' }}>
+        <div style={{ maxWidth: 1150, margin: '0 auto', textAlign: 'center', marginBottom: 56 }}>
+          <h2 style={{ fontSize: 38, fontWeight: 900, letterSpacing: '-1px', marginBottom: 12, color: '#0f172a' }}>Şeffaf fiyatlandırma</h2>
+          <p style={{ color: '#64748b', fontSize: 16 }}>Gizli ücret yok, taahhüt yok. İstediğiniz an iptal edin.</p>
         </div>
-        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-6">
+        <div className="grid-4" style={{ maxWidth: 1150, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 20 }}>
           {plans.map((p) => (
-            <div
-              key={p.name}
-              className={`relative bg-white rounded-2xl p-7 border-2 transition-all hover:-translate-y-1 ${
-                p.featured ? 'border-red-600 shadow-xl shadow-red-600/10' : 'border-slate-200 hover:border-red-600'
-              }`}
-            >
+            <div key={p.name} className={`plan-card ${p.featured ? 'plan-featured' : ''}`}>
               {p.featured && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-red-600 to-red-800 text-white text-[10px] font-black px-3 py-1 rounded-full tracking-wider">
-                  POPÜLER
-                </div>
+                <div style={{ position: 'absolute', top: -12, left: '50%', transform: 'translateX(-50%)', background: 'linear-gradient(135deg, #dc2626, #b91c1c)', color: '#fff', fontSize: 10, fontWeight: 900, padding: '4px 12px', borderRadius: 20, letterSpacing: 1 }}>POPÜLER</div>
               )}
-              <h3 className="text-lg font-extrabold mb-1">{p.name}</h3>
-              <div className="mb-6">
-                <span className="text-3xl font-black tracking-tight">₺{p.price}</span>
-                <span className="text-sm text-slate-500">/ay</span>
+              <h3 style={{ fontSize: 17, fontWeight: 800, marginBottom: 4, color: '#0f172a' }}>{p.name}</h3>
+              <div style={{ marginBottom: 24 }}>
+                <span style={{ fontSize: 30, fontWeight: 900, letterSpacing: '-1px', color: '#0f172a' }}>₺{p.price}</span>
+                <span style={{ fontSize: 14, color: '#64748b' }}>/ay</span>
               </div>
-              <ul className="space-y-3 mb-7">
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 28px' }}>
                 {p.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-slate-700">
-                    <Check className="w-4 h-4 text-green-600 shrink-0" />
+                  <li key={f} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#334155', padding: '6px 0' }}>
+                    <span style={{ color: '#10b981', fontWeight: 900, flexShrink: 0 }}>✓</span>
                     {f}
                   </li>
                 ))}
                 {p.missing.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-slate-400 line-through">
-                    <span className="w-4 h-4 text-center shrink-0">×</span>
+                  <li key={f} style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13, color: '#94a3b8', textDecoration: 'line-through', padding: '6px 0' }}>
+                    <span style={{ flexShrink: 0 }}>×</span>
                     {f}
                   </li>
                 ))}
               </ul>
               <Link
                 href="/signup"
-                className={`block text-center py-3 rounded-xl font-semibold text-sm transition ${
-                  p.featured
-                    ? 'bg-gradient-to-r from-red-600 to-red-800 text-white shadow-lg shadow-red-600/30 hover:shadow-red-600/40'
-                    : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-50'
-                }`}
+                style={{
+                  display: 'block', textAlign: 'center', padding: '12px', borderRadius: 12, fontWeight: 600, fontSize: 14, textDecoration: 'none',
+                  background: p.featured ? 'linear-gradient(135deg, #dc2626, #b91c1c)' : '#fff',
+                  color: p.featured ? '#fff' : '#334155',
+                  border: p.featured ? 'none' : '1px solid #e2e8f0',
+                  boxShadow: p.featured ? '0 8px 20px rgba(220,38,38,0.3)' : 'none',
+                }}
               >
                 Başla
               </Link>
@@ -193,36 +156,30 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section id="demo" className="px-6 py-20">
-        <div className="max-w-5xl mx-auto relative bg-gradient-to-br from-slate-900 to-slate-700 rounded-3xl p-16 text-center text-white overflow-hidden">
-          <div className="absolute -top-24 -right-24 w-96 h-96 bg-red-600/30 rounded-full blur-3xl" />
-          <div className="relative">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-4">
-              Bugün başlayın, 14 gün ücretsiz.
-            </h2>
-            <p className="text-lg text-white/70 mb-8 max-w-xl mx-auto">
+      <section id="demo" style={{ padding: '80px 24px' }}>
+        <div style={{ maxWidth: 1000, margin: '0 auto', position: 'relative', background: 'linear-gradient(135deg, #0f172a, #334155)', borderRadius: 24, padding: 64, textAlign: 'center', color: '#fff', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', top: -96, right: -96, width: 384, height: 384, background: 'rgba(220,38,38,0.3)', borderRadius: '50%', filter: 'blur(80px)', pointerEvents: 'none' }} />
+          <div style={{ position: 'relative' }}>
+            <h2 style={{ fontSize: 42, fontWeight: 900, letterSpacing: '-1.5px', marginBottom: 16 }}>Bugün başlayın,<br />14 gün ücretsiz.</h2>
+            <p style={{ fontSize: 17, opacity: 0.75, marginBottom: 32, maxWidth: 560, marginLeft: 'auto', marginRight: 'auto' }}>
               Kredi kartı gerekmiyor. Kurulum ücretsiz, istediğiniz an iptal edebilirsiniz.
             </p>
-            <Link
-              href="/signup"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-red-800 px-8 py-4 rounded-xl font-semibold shadow-2xl shadow-red-600/40 hover:-translate-y-0.5 transition-all"
-            >
-              Hemen Başla
-              <ArrowRight className="w-4 h-4" />
+            <Link href="/signup" className="btn-primary" style={{ padding: '16px 36px', fontSize: 15, position: 'relative' }}>
+              Hemen Başla →
             </Link>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer id="contact" className="border-t border-slate-200 px-6 py-10">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <footer id="contact" style={{ borderTop: '1px solid #e2e8f0', padding: '40px 24px', background: '#fff' }}>
+        <div style={{ maxWidth: 1150, margin: '0 auto', display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: 16, fontSize: 14, color: '#64748b' }}>
           <div>© 2026 EnvanterTR — Tüm hakları saklıdır.</div>
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-slate-900 transition">Hakkımızda</a>
-            <a href="#" className="hover:text-slate-900 transition">İletişim</a>
-            <a href="#" className="hover:text-slate-900 transition">KVKK</a>
-            <a href="#" className="hover:text-slate-900 transition">Gizlilik</a>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+            <a href="#" style={{ color: '#64748b', textDecoration: 'none' }}>Hakkımızda</a>
+            <a href="#" style={{ color: '#64748b', textDecoration: 'none' }}>İletişim</a>
+            <a href="#" style={{ color: '#64748b', textDecoration: 'none' }}>KVKK</a>
+            <a href="#" style={{ color: '#64748b', textDecoration: 'none' }}>Gizlilik</a>
           </div>
         </div>
       </footer>
