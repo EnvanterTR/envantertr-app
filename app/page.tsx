@@ -13,7 +13,7 @@ const S: Record<Lang, any> = {
     cta1:'Ücretsiz Dene', cta2:'Demo İzle',
     t1:'Kredi kartı gerekmez', t2:'Kurulum ücretsiz', t3:'İstediğiniz an iptal',
     fT:'Envanter yönetiminde yeni standart', fS:'Kurumsal güç, modern arayüz',
-    pT:'Şeffaf fiyatlandırma', pS:'Gizli ücret yok, taahhüt yok.', pop:'POPÜLER', mo:'/ay', başla:'Başla',
+    pT:'Şeffaf fiyatlandırma', pS:'Gizli ücret yok, taahhüt yok.', pop:'POPÜLER', mo:'/ay', basla:'Başla',
     cT:'Bugün başlayın, 14 gün ücretsiz.', cS:'Kredi kartı gerekmiyor.', cBtn:'Hemen Başla',
     fRights:'Tüm hakları saklıdır.', fAbout:'Hakkımızda', fContact:'İletişim', fKvkk:'KVKK', fPriv:'Gizlilik',
   },
@@ -24,7 +24,7 @@ const S: Record<Lang, any> = {
     cta1:'Try Free', cta2:'Watch Demo',
     t1:'No credit card', t2:'Free setup', t3:'Cancel anytime',
     fT:'A new standard in inventory', fS:'Enterprise power, modern interface',
-    pT:'Transparent pricing', pS:'No hidden fees, no commitment.', pop:'POPULAR', mo:'/mo', başla:'Get Started',
+    pT:'Transparent pricing', pS:'No hidden fees, no commitment.', pop:'POPULAR', mo:'/mo', basla:'Get Started',
     cT:'Start today, free for 14 days.', cS:'No credit card required.', cBtn:'Get Started',
     fRights:'All rights reserved.', fAbout:'About', fContact:'Contact', fKvkk:'Privacy', fPriv:'Terms',
   },
@@ -35,7 +35,7 @@ const S: Record<Lang, any> = {
     cta1:'Пробај бесплатно', cta2:'Гледај демо',
     t1:'Без кредитна карта', t2:'Бесплатна инсталација', t3:'Откажете кога било',
     fT:'Нов стандард во инвентар', fS:'Корпоративна моќ, модерен интерфејс',
-    pT:'Транспарентни цени', pS:'Без скриени трошоци.', pop:'ПОПУЛАРНО', mo:'/мес', başla:'Започни',
+    pT:'Транспарентни цени', pS:'Без скриени трошоци.', pop:'ПОПУЛАРНО', mo:'/мес', basla:'Започни',
     cT:'Започнете денес, 14 дена бесплатно.', cS:'Без кредитна карта.', cBtn:'Започни',
     fRights:'Сите права задржани.', fAbout:'За нас', fContact:'Контакт', fKvkk:'Приватност', fPriv:'Услови',
   },
@@ -46,7 +46,7 @@ const S: Record<Lang, any> = {
     cta1:'Попробовать', cta2:'Смотреть демо',
     t1:'Без карты', t2:'Установка бесплатно', t3:'Отмена когда угодно',
     fT:'Новый стандарт инвентаря', fS:'Корпоративная мощь, современный интерфейс',
-    pT:'Прозрачные цены', pS:'Без скрытых платежей.', pop:'ПОПУЛЯРНОЕ', mo:'/мес', başla:'Начать',
+    pT:'Прозрачные цены', pS:'Без скрытых платежей.', pop:'ПОПУЛЯРНОЕ', mo:'/мес', basla:'Начать',
     cT:'Начните сегодня, 14 дней бесплатно.', cS:'Карта не требуется.', cBtn:'Начать',
     fRights:'Все права защищены.', fAbout:'О нас', fContact:'Контакты', fKvkk:'Приватность', fPriv:'Условия',
   },
@@ -57,7 +57,7 @@ const S: Record<Lang, any> = {
     cta1:'Спробувати', cta2:'Дивитись демо',
     t1:'Без картки', t2:'Встановлення безкоштовне', t3:'Скасувати будь-коли',
     fT:'Новий стандарт інвентарю', fS:'Корпоративна потужність, сучасний інтерфейс',
-    pT:'Прозорі ціни', pS:'Без прихованих платежів.', pop:'ПОПУЛЯРНЕ', mo:'/міс', başla:'Почати',
+    pT:'Прозорі ціни', pS:'Без прихованих платежів.', pop:'ПОПУЛЯРНЕ', mo:'/міс', basla:'Почати',
     cT:'Почніть сьогодні, 14 днів безкоштовно.', cS:'Картка не потрібна.', cBtn:'Почати',
     fRights:'Всі права захищені.', fAbout:'Про нас', fContact:'Контакти', fKvkk:'Конфіденційність', fPriv:'Умови',
   },
@@ -76,10 +76,10 @@ const FEATURES = [
 ]
 
 const PLANS = [
-  { name:'Başlangıç', nameEn:'Starter', price:'499', k:3, d:'5 GB', feat:['50 demirbaş','3 kullanıcı','5 GB disk'] },
-  { name:'Standart', nameEn:'Standard', price:'999', k:20, d:'50 GB', feat:['500 demirbaş','20 kullanıcı','50 GB disk'] },
-  { name:'Profesyonel', nameEn:'Professional', price:'1999', k:50, d:'250 GB', feat:['2000 demirbaş','50 kullanıcı','250 GB disk'], popular:true },
-  { name:'Kurumsal', nameEn:'Enterprise', price:'2499', k:999, d:'1 TB', feat:['Sınırsız demirbaş','Sınırsız kullanıcı','1 TB disk'] },
+  { name:'Başlangıç', nameEn:'Starter', price:'499', feat:['50 demirbaş','3 kullanıcı','5 GB disk'] },
+  { name:'Standart', nameEn:'Standard', price:'999', feat:['500 demirbaş','20 kullanıcı','50 GB disk'] },
+  { name:'Profesyonel', nameEn:'Professional', price:'1999', feat:['2000 demirbaş','50 kullanıcı','250 GB disk'], popular:true },
+  { name:'Kurumsal', nameEn:'Enterprise', price:'2499', feat:['Sınırsız demirbaş','Sınırsız kullanıcı','1 TB disk'] },
 ]
 
 export default function Home() {
@@ -104,14 +104,14 @@ export default function Home() {
   const t = S[lang]
   const D = theme === 'dark'
   const C = {
-    bg: D ? '#0A0A0A' : '#FAF7F2',
-    bgAlt: D ? '#141414' : '#FFFFFF',
-    bgSoft: D ? '#1A1A1A' : '#F5F0E8',
-    fg: D ? '#F5F5F0' : '#1A1A1A',
-    fgMuted: D ? '#9CA3AF' : '#6B6B6B',
-    border: D ? '#262626' : '#E8E1D5',
-    accent: D ? '#D4AF37' : '#B91C1C',
-    accentSoft: D ? 'rgba(212,175,55,0.12)' : 'rgba(185,28,28,0.08)',
+    bg: D ? '#0A0A0A' : '#FFFFFF',
+    bgAlt: D ? '#141414' : '#FAFAFA',
+    bgSoft: D ? '#1A1A1A' : '#F1F5F9',
+    fg: D ? '#F5F5F0' : '#0F172A',
+    fgMuted: D ? '#9CA3AF' : '#64748B',
+    border: D ? '#262626' : '#E2E8F0',
+    accent: D ? '#3B82F6' : '#DC2626',
+    accentSoft: D ? 'rgba(59,130,246,0.15)' : 'rgba(220,38,38,0.10)',
   }
 
   const LANGS: { c: Lang; l: string; f: string }[] = [
@@ -122,11 +122,10 @@ export default function Home() {
   return (
     <div style={{ minHeight:'100vh', background:C.bg, color:C.fg, fontFamily:'Inter, system-ui, sans-serif', transition:'background .35s ease, color .35s ease' }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        .serif { font-family: 'Fraunces', Georgia, serif; letter-spacing: -0.02em; }
         a { text-decoration: none; color: inherit; }
-        .btn-primary { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:${C.accent}; color:${D?'#0A0A0A':'#fff'}; font-weight:600; border-radius:100px; border:none; cursor:pointer; font-family:inherit; font-size:15px; box-shadow:0 8px 24px ${C.accentSoft}; transition: all .3s cubic-bezier(.16,1,.3,1); }
+        .btn-primary { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:${C.accent}; color:#fff; font-weight:600; border-radius:100px; border:none; cursor:pointer; font-family:inherit; font-size:15px; box-shadow:0 8px 24px ${C.accentSoft}; transition: all .3s cubic-bezier(.16,1,.3,1); }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px ${C.accentSoft}; }
         .btn-ghost { display:inline-flex; align-items:center; gap:8px; padding:14px 28px; background:transparent; color:${C.fg}; font-weight:600; border-radius:100px; border:1px solid ${C.border}; cursor:pointer; font-family:inherit; font-size:15px; transition: all .3s; }
         .btn-ghost:hover { background:${C.bgSoft}; }
@@ -149,16 +148,16 @@ export default function Home() {
           .hide-mobile { display:none !important; }
           .grid-3 { grid-template-columns:1fr !important; }
           .grid-4 { grid-template-columns:1fr !important; }
-          .hero-title { font-size:42px !important; }
+          .hero-title { font-size:38px !important; }
         }
       `}</style>
 
       {/* NAVBAR */}
-      <nav style={{ position:'sticky', top:0, zIndex:50, background: D ? 'rgba(10,10,10,0.85)' : 'rgba(250,247,242,0.85)', backdropFilter:'blur(20px)', borderBottom:`1px solid ${C.border}` }}>
+      <nav style={{ position:'sticky', top:0, zIndex:50, background: D ? 'rgba(10,10,10,0.85)' : 'rgba(255,255,255,0.85)', backdropFilter:'blur(20px)', borderBottom:`1px solid ${C.border}` }}>
         <div style={{ maxWidth:1280, margin:'0 auto', padding:'0 28px', height:72, display:'flex', alignItems:'center', justifyContent:'space-between' }}>
           <a href="/" style={{ display:'flex', alignItems:'center', gap:12 }}>
-            <div style={{ width:40, height:40, background:C.accent, borderRadius:12, display:'flex', alignItems:'center', justifyContent:'center', color: D ? '#0A0A0A' : '#fff', fontWeight:900, fontSize:20, fontFamily:'Fraunces, serif' }}>E</div>
-            <span className="serif" style={{ fontSize:22, fontWeight:700 }}>
+            <div style={{ width:40, height:40, background:C.accent, borderRadius:12, display:'flex', alignItems:'center', justifyContent:'center', color:'#fff', fontWeight:900, fontSize:20 }}>E</div>
+            <span style={{ fontSize:22, fontWeight:800, letterSpacing:'-0.03em' }}>
               Envanter<span style={{ color:C.accent }}>TR</span>
             </span>
           </a>
@@ -171,7 +170,6 @@ export default function Home() {
           </div>
 
           <div style={{ display:'flex', alignItems:'center', gap:10 }}>
-            {/* LANGUAGE */}
             <div style={{ position:'relative' }}>
               <button className="lang-btn" onClick={() => setLangOpen(!langOpen)}>
                 <span>{LANGS.find(x => x.c === lang)?.f}</span>
@@ -191,7 +189,6 @@ export default function Home() {
               )}
             </div>
 
-            {/* THEME */}
             <button className="theme-btn" onClick={toggleTheme} title={D ? 'Açık tema' : 'Koyu tema'}>
               {D ? '☀️' : '🌙'}
             </button>
@@ -209,10 +206,10 @@ export default function Home() {
           <div style={{ display:'inline-flex', alignItems:'center', gap:8, padding:'6px 16px', borderRadius:100, border:`1px solid ${C.border}`, background:C.bgAlt, fontSize:12, fontWeight:600, letterSpacing:'0.06em', color:C.accent, marginBottom:28 }}>
             {t.badge}
           </div>
-          <h1 className="serif hero-title" style={{ fontSize:72, fontWeight:900, lineHeight:1.02, marginBottom:24 }}>
+          <h1 className="hero-title" style={{ fontSize:56, fontWeight:900, lineHeight:1.05, letterSpacing:'-0.04em', marginBottom:24 }}>
             {t.h1a}<br/>{t.h1b} <span style={{ color:C.accent }}>{t.h1c}</span>.
           </h1>
-          <p style={{ fontSize:18, color:C.fgMuted, maxWidth:640, margin:'0 auto 40px', lineHeight:1.65 }}>
+          <p style={{ fontSize:17, color:C.fgMuted, maxWidth:640, margin:'0 auto 40px', lineHeight:1.65 }}>
             {t.hsub}
           </p>
           <div style={{ display:'flex', alignItems:'center', justifyContent:'center', gap:12, flexWrap:'wrap', marginBottom:32 }}>
@@ -228,7 +225,7 @@ export default function Home() {
       {/* FEATURES */}
       <section id="features" style={{ padding:'100px 28px', background:C.bgAlt, borderTop:`1px solid ${C.border}`, borderBottom:`1px solid ${C.border}` }}>
         <div style={{ maxWidth:1200, margin:'0 auto', textAlign:'center', marginBottom:64 }}>
-          <h2 className="serif" style={{ fontSize:52, fontWeight:900, lineHeight:1.1, marginBottom:14 }}>{t.fT}</h2>
+          <h2 style={{ fontSize:42, fontWeight:900, lineHeight:1.1, letterSpacing:'-0.03em', marginBottom:14 }}>{t.fT}</h2>
           <p style={{ color:C.fgMuted, fontSize:16 }}>{t.fS}</p>
         </div>
         <div className="grid-3" style={{ maxWidth:1200, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(3, 1fr)', gap:20 }}>
@@ -237,7 +234,7 @@ export default function Home() {
               <div style={{ width:56, height:56, borderRadius:16, background:C.accentSoft, display:'flex', alignItems:'center', justifyContent:'center', fontSize:26, marginBottom:20 }}>
                 {f.icon}
               </div>
-              <h3 className="serif" style={{ fontSize:20, fontWeight:700, marginBottom:8 }}>{f[lang]}</h3>
+              <h3 style={{ fontSize:18, fontWeight:700, marginBottom:8, letterSpacing:'-0.01em' }}>{f[lang]}</h3>
               <p style={{ fontSize:14, color:C.fgMuted, lineHeight:1.6 }}>{f[`desc_${lang}`]}</p>
             </div>
           ))}
@@ -247,18 +244,18 @@ export default function Home() {
       {/* PRICING */}
       <section id="pricing" style={{ padding:'100px 28px' }}>
         <div style={{ maxWidth:1200, margin:'0 auto', textAlign:'center', marginBottom:64 }}>
-          <h2 className="serif" style={{ fontSize:52, fontWeight:900, lineHeight:1.1, marginBottom:14 }}>{t.pT}</h2>
+          <h2 style={{ fontSize:42, fontWeight:900, lineHeight:1.1, letterSpacing:'-0.03em', marginBottom:14 }}>{t.pT}</h2>
           <p style={{ color:C.fgMuted, fontSize:16 }}>{t.pS}</p>
         </div>
         <div className="grid-4" style={{ maxWidth:1200, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(4, 1fr)', gap:20 }}>
           {PLANS.map((p, i) => (
             <div key={i} className={`plan-card ${p.popular ? 'plan-pop' : ''}`}>
               {p.popular && (
-                <div style={{ position:'absolute', top:-12, left:'50%', transform:'translateX(-50%)', background:C.accent, color: D ? '#0A0A0A' : '#fff', fontSize:10, fontWeight:800, padding:'5px 14px', borderRadius:100, letterSpacing:'0.1em' }}>{t.pop}</div>
+                <div style={{ position:'absolute', top:-12, left:'50%', transform:'translateX(-50%)', background:C.accent, color:'#fff', fontSize:10, fontWeight:800, padding:'5px 14px', borderRadius:100, letterSpacing:'0.1em' }}>{t.pop}</div>
               )}
-              <h3 className="serif" style={{ fontSize:20, fontWeight:700, marginBottom:14 }}>{lang === 'tr' ? p.name : p.nameEn}</h3>
+              <h3 style={{ fontSize:18, fontWeight:700, marginBottom:14 }}>{lang === 'tr' ? p.name : p.nameEn}</h3>
               <div style={{ marginBottom:28 }}>
-                <span className="serif" style={{ fontSize:44, fontWeight:900, letterSpacing:'-0.03em' }}>₺{p.price}</span>
+                <span style={{ fontSize:38, fontWeight:900, letterSpacing:'-0.03em' }}>₺{p.price}</span>
                 <span style={{ fontSize:14, color:C.fgMuted }}>{t.mo}</span>
               </div>
               <ul style={{ listStyle:'none', padding:0, margin:'0 0 28px', flex:1 }}>
@@ -269,7 +266,7 @@ export default function Home() {
                 ))}
               </ul>
               <a href="/signup" className={p.popular ? 'btn-primary' : 'btn-ghost'} style={{ justifyContent:'center', width:'100%' }}>
-                {t.başla}
+                {t.basla}
               </a>
             </div>
           ))}
@@ -278,11 +275,11 @@ export default function Home() {
 
       {/* CTA */}
       <section id="demo" style={{ padding:'100px 28px' }}>
-        <div style={{ maxWidth:1000, margin:'0 auto', background: D ? C.bgAlt : '#1A1A1A', borderRadius:32, padding:'80px 48px', textAlign:'center', position:'relative', overflow:'hidden', border:`1px solid ${C.border}` }}>
+        <div style={{ maxWidth:1000, margin:'0 auto', background: D ? C.bgAlt : '#0F172A', borderRadius:32, padding:'80px 48px', textAlign:'center', position:'relative', overflow:'hidden', border:`1px solid ${C.border}` }}>
           <div style={{ position:'absolute', top:-120, right:-120, width:400, height:400, background:C.accentSoft, borderRadius:'50%', filter:'blur(100px)', pointerEvents:'none' }} />
           <div style={{ position:'relative' }}>
-            <h2 className="serif" style={{ fontSize:52, fontWeight:900, lineHeight:1.1, marginBottom:18, color: D ? C.fg : '#F5F5F0' }}>{t.cT}</h2>
-            <p style={{ fontSize:17, color: D ? C.fgMuted : '#9CA3AF', marginBottom:36, maxWidth:560, marginLeft:'auto', marginRight:'auto' }}>{t.cS}</p>
+            <h2 style={{ fontSize:42, fontWeight:900, lineHeight:1.1, letterSpacing:'-0.03em', marginBottom:18, color:'#F5F5F0' }}>{t.cT}</h2>
+            <p style={{ fontSize:17, color:'#9CA3AF', marginBottom:36, maxWidth:560, marginLeft:'auto', marginRight:'auto' }}>{t.cS}</p>
             <a href="/signup" className="btn-primary" style={{ padding:'16px 36px' }}>{t.cBtn} →</a>
           </div>
         </div>
@@ -292,8 +289,8 @@ export default function Home() {
       <footer id="contact" style={{ borderTop:`1px solid ${C.border}`, padding:'48px 28px', background:C.bgAlt }}>
         <div style={{ maxWidth:1200, margin:'0 auto', display:'flex', flexWrap:'wrap', alignItems:'center', justifyContent:'space-between', gap:20 }}>
           <div style={{ display:'flex', alignItems:'center', gap:10 }}>
-            <div style={{ width:32, height:32, background:C.accent, borderRadius:10, display:'flex', alignItems:'center', justifyContent:'center', color: D ? '#0A0A0A' : '#fff', fontWeight:900, fontFamily:'Fraunces, serif' }}>E</div>
-            <span className="serif" style={{ fontSize:16, fontWeight:700 }}>Envanter<span style={{ color:C.accent }}>TR</span></span>
+            <div style={{ width:32, height:32, background:C.accent, borderRadius:10, display:'flex', alignItems:'center', justifyContent:'center', color:'#fff', fontWeight:900 }}>E</div>
+            <span style={{ fontSize:16, fontWeight:800 }}>Envanter<span style={{ color:C.accent }}>TR</span></span>
           </div>
           <div style={{ fontSize:13, color:C.fgMuted }}>© 2026 EnvanterTR · {t.fRights}</div>
           <div style={{ display:'flex', alignItems:'center', gap:24, fontSize:13, color:C.fgMuted }}>
