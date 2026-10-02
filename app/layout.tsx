@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import './globals.css'
 
 export const metadata: Metadata = {
   title: 'EnvanterTR — Modern Envanter Yönetimi',
@@ -13,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="tr">
-      <body className="bg-slate-50 text-slate-900 antialiased">
+      <body style={{ margin: 0, fontFamily: 'Inter, system-ui, sans-serif' }}>
         {children}
       </body>
     </html>
